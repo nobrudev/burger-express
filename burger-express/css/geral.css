@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  border: 3px solid #080808;
+}
+
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-family: "Lobster", cursive;
+  font-size: 3.125rem;
+  background-color: #004aad;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.logo-titulo img {
+  height: 60px;
+  width: auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.step {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.step.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+div[id^="step"] {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-box,
+.step .conteudo {
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.voltar {
+  position: absolute;
+  top: -25px;
+  left: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ff4d4d;
+  color: #080808;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border: 3px solid #080808;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+}
+
+.voltar:hover {
+  background-color: #e23b3b;
+}
+
+@media (max-width: 800px) {
+  .logo-titulo {
+    font-size: 2rem;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .logo-titulo img {
+    height: 45px;
+  }
+
+  .step .conteudo,
+  .step-box {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  #step4 .opcoes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #step4 .coluna {
+    width: 100%;
+  }
+
+  #step5 #pedidoResumo {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-titulo {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .logo-titulo img {
+    height: 40px;
+  }
+
+  #step2 .nome-conteudo {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    width: 200px;
+  }
+
+  #step3 h2,
+  #step4 h2,
+  #step5 h2 {
+    font-size: 1.4rem;
+  }
+
+  button,
+  .continuar,
+  .comprar,
+  .confirmar,
+  .voltar {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  #step4 .item img,
+  #step5 .pedido-imagens img {
+    width: 60px;
+  }
+
+  #step5 #pedidoResumo li {
+    font-size: 0.9rem;
+    margin-left: 0;
+  }
+}

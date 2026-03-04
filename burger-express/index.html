@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="./burger.png" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <h1 class="logo-titulo">
+    <img src="img/burger.png" alt="Logo Burger Express">
+    Burger Express Delivery
+  </h1>
+
+  <div class="step show" id="step1">
+    <div class="step-box">
+      <h2>
+        Bem-vindo ao Burguer Express
+      </h2>
+      <button class="iniciar" onclick="nextStep(2)">Iniciar Pedido</button>
+    </div>
+  </div>
+
+  <div class="step hidden" id="step2">
+    <div class="conteudo">
+      <button class="voltar" onclick="previousStep(1)">&#8617;</button>
+      <h2>Qual é o seu nome?</h2>
+      <input class="nome-conteudo" type="text" id="nomeCliente" placeholder="Digite seu nome" required>
+      <button class="continuar" onclick="validarNome()">Continuar</button>
+    </div>
+  </div>
+
+  <div class="step hidden" id="step3">
+    <div class="conteudo">
+      <button class="voltar" onclick="previousStep(2)">&#8617;</button>
+
+      <h2 class="opcoes1">Como deseja receber?</h2>
+
+      <div class="coluna">
+        <div class="opcao">
+          <input type="radio" id="retirar" name="receber" value="Retirar no Restaurante">
+          <label for="retirar">
+            <img src="img/retirar-no-restaurante.png" alt="Retirar no Restaurante" title="Retirar no Restaurante">
+          </label>
+        </div>
+      </div>
+
+      <div class="coluna">
+        <div class="opcao">
+          <input type="radio" id="entrega" name="receber" value="Entrega Motoboy">
+          <label for="entrega">
+            <img class="motoboy" src="img/entrega.png" alt="Entrega Motoboy" title="Entrega Motoboy">
+          </label>
+        </div>
+      </div>
+
+      <button class="confirmar" onclick="nextStep(4)">Confirmar</button>
+    </div>
+  </div>
+
+  <div class="step hidden" id="step4">
+    <div class="conteudo">
+      <button class="voltar" onclick="previousStep(3)">&#8617;</button>
+
+      <h2>Monte seu pedido</h2>
+      <div class="opcoes">
+        <div class="coluna">
+          <div class="item">
+            <img src="img/hamburguer.png" alt="Hambúrguer">
+            <p>Hambúrguer - R$ 25,00</p>
+            <input type="checkbox" value="Hambúrguer" data-preco="25.00">
+          </div>
+          <div class="item">
+            <img src="img/batatas-fritas.png" alt="Batata Frita">
+            <p>Batata Frita - R$ 10,00</p>
+            <input type="checkbox" value="Batata Frita" data-preco="10.00">
+          </div>
+          <div class="item">
+            <img src="img/soda.png" alt="Refrigerante">
+            <p>Refrigerante - R$ 8,00</p>
+            <input type="checkbox" value="Refrigerante" data-preco="8.00">
+          </div>
+          <div class="item">
+            <img src="img/suco-de-laranja.png" alt="Suco">
+            <p>Suco - R$ 6,50</p>
+            <input type="checkbox" value="Suco" data-preco="6.50">
+          </div>
+        </div>
+
+        <div class="coluna">
+          <div class="item">
+            <img src="img/nuggets.png" alt="Nuggets">
+            <p>Nuggets - R$ 12,25</p>
+            <input type="checkbox" value="Nuggets" data-preco="12.25">
+          </div>
+          <div class="item">
+            <img src="img/sorvete.png" alt="Sorvete">
+            <p>Sorvete - R$ 3,75</p>
+            <input type="checkbox" value="Sorvete" data-preco="3.75">
+          </div>
+          <div class="item">
+            <img src="img/taca-de-sorvete.png" alt="Taça de Sorvete">
+            <p>Taça de Sorvete - R$ 6,99</p>
+            <input type="checkbox" value="Taça de Sorvete" data-preco="6.99">
+          </div>
+          <div class="item">
+            <img src="img/biscoitos.png" alt="Biscoito">
+            <p>Biscoito - R$ 4,25</p>
+            <input type="checkbox" value="Biscoito" data-preco="4.25">
+          </div>
+        </div>
+      </div>
+      <button class="comprar" onclick="finalizarPedido()">Comprar</button>
+    </div>
+  </div>
+
+  <div class="step hidden" id="step5">
+    <div class="conteudo">
+      <button class="voltar" onclick="previousStep(4)">&#8617;</button>
+
+      <h2>Resumo do Pedido</h2>
+      <div class="cliente"><span id="nomeResumo"></span></div>
+      <div id="entregaResumo"></div>
+      <ul id="pedidoResumo"></ul>
+      <div id="totalResumo"></div>
+      <button class="confirmar" onclick="confirmarPedido()">Confirmar Pedido</button>
+    </div>
+  </div>
+
+
+  <script>
+    function nextStep(step) {
+      document.querySelectorAll("div[id^='step']").forEach((div) => {
+        div.classList.remove("show");
+        div.classList.add("hidden");
+      });
+
+      const atual = document.getElementById("step" + step);
+      atual.classList.remove("hidden");
+
+      setTimeout(() => {
+        atual.classList.add("show");
+      }, 10);
+    }
+
+    function previousStep(step) {
+      nextStep(step);
+    }
+
+    function validarNome() {
+      const nome = document.getElementById("nomeCliente").value.trim();
+      if (nome.length > 0) {
+        window.nomeCliente = nome;
+        nextStep(3);
+      } else {
+        alert("Por favor, digite seu nome.");
+      }
+    }
+
+    function finalizarPedido() {
+      const itensSelecionados = Array.from(
+        document.querySelectorAll("#step4 input:checked")
+      );
+
+      const entrega = document.querySelector("#step3 input[name='receber']:checked");
+      const formaEntrega = entrega
+        ? entrega.value
+        : "Nenhuma forma de entrega selecionada";
+
+      const pedidoResumo = document.getElementById("pedidoResumo");
+      pedidoResumo.innerHTML = "";
+
+      let total = 0;
+
+      if (itensSelecionados.length) {
+        itensSelecionados.forEach((el, index) => {
+          const nome = el.value;
+          const preco = parseFloat(el.dataset.preco);
+          total += preco;
+
+          const li = document.createElement("li");
+          li.textContent = `${nome} - R$ ${preco.toFixed(2)}`;
+
+          const btnRemover = document.createElement("button");
+          btnRemover.textContent = "X";
+          btnRemover.style.marginLeft = "10px";
+          btnRemover.onclick = () => {
+            el.checked = false;
+            li.remove();
+            atualizarTotal();
+          };
+
+          li.appendChild(btnRemover);
+          pedidoResumo.appendChild(li);
+        });
+      } else {
+        pedidoResumo.innerHTML = "<li>Nada selecionado</li>";
+      }
+
+      document.getElementById("entregaResumo").innerText =
+        `${window.nomeCliente} - ${formaEntrega}`;
+
+
+
+      document.getElementById("totalResumo").innerText =
+        `Total a pagar: R$ ${total.toFixed(2)}`;
+
+      nextStep(5);
+
+      function atualizarTotal() {
+        let novoTotal = 0;
+        Array.from(document.querySelectorAll("#step4 input:checked")).forEach((el) => {
+          novoTotal += parseFloat(el.dataset.preco);
+        });
+        document.getElementById("totalResumo").innerText =
+          `Total a pagar: R$ ${novoTotal.toFixed(2)}`;
+      }
+    }
+  </script>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+
+</html>

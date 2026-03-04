@@ -1,0 +1,74 @@
+#step2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+#step2 .conteudo {
+  background-color: #004aad;
+  padding: 40px;
+  border: 3px solid #080808;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#step2 h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+#step2 .nome-conteudo {
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 8px;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #ff4d4d;
+  padding: 5px 0;
+  text-align: center;
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+#step2 .nome-conteudo::placeholder {
+  color: #999;
+  letter-spacing: normal;
+  font-size: 1rem;
+}
+
+#step2 .nome-conteudo:focus {
+  outline: none;
+  border-bottom: 3px solid #ff4d4d;
+}
+
+#step2 .continuar {
+  margin-top: 5px;
+  padding: 12px 25px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #ff4d4d;
+  color: #ff4d4d;
+  border: 3px solid #080808;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+  color: #080808;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+#step2 .continuar:hover {
+  background-color: #65cc62;
+}

@@ -1,0 +1,91 @@
+#step5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+#step5 .conteudo {
+  background-color: #ff4d4d;
+  padding: 40px;
+  border: 3px solid #080808;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  max-width: 700px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#step5 h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #080808;
+}
+
+#step5 #pedidoResumo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+}
+
+#step5 #pedidoResumo li {
+  font-size: 1rem;
+  color: #080808;
+  padding: 8px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#step5 #pedidoResumo li button {
+  background-color: #004aad;
+  color: #fff;
+  border: 3px solid #080808;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+#step5 #pedidoResumo li button:hover {
+  background-color: #053e8a;
+}
+
+#step5 #entregaResumo,
+#step5 #totalResumo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+#step5 .confirmar {
+  margin-top: 25px;
+  padding: 12px 25px;
+  background-color: #65cc62;
+  color: #080808;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border: 3px solid #080808;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#step5 .confirmar:hover {
+  background-color: #4fa94f;
+}

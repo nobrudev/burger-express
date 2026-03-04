@@ -1,0 +1,38 @@
+.step-box {
+  font-size: 1.125rem;
+  background-color: #004aad;
+  padding: 60px;
+  border: 3px solid #080808;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 12px;
+  text-align: center;
+}
+
+#step1 h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  border: 3px solid #080808;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #65cc62;
+}
+
+.iniciar {
+  background-color: #ff4d4d;
+  color: #080808;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
